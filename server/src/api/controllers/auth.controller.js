@@ -5,9 +5,6 @@ const { registerUser, loginUser } = require('../services/authProvider');
 exports.register = async (req, res, next) => {
     const  user = req.body;
 
-    if(!emailValidator.validate(user.email))
-    return next(new ErrorResponse("Invalid Email-Id", 401));
-
     if(user.password !== user.confirmPassword)
     return next(new ErrorResponse("Passwords doesn't match", 402));
 
